@@ -1,0 +1,6 @@
+version: "Apple Swift version 4.1.2 (swiftlang-902.0.54 clang-902.0.39.2)"
+options: "2312054f68258cc892c1f5ccf5fd1ac3"
+build_time: [1529388500, 182006000]
+inputs:
+  "/Users/pankajr/Documents/PankajRaghav/HeyDJProject/HeyDJ/HeyDJ/ViewController.swift": [1529388497, 0]
+  "/Users/pankajr/Documents/PankajRaghav/HeyDJProject/HeyDJ/HeyDJ/AppDelegate.swift": [1529388497, 0]

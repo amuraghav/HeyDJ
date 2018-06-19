@@ -1,0 +1,606 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		68125E6E20D8D55100C8D06D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68125E6D20D8D55100C8D06D /* AppDelegate.swift */; };
+		68125E7020D8D55100C8D06D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68125E6F20D8D55100C8D06D /* ViewController.swift */; };
+		68125E7320D8D55100C8D06D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68125E7120D8D55100C8D06D /* Main.storyboard */; };
+		68125E7620D8D55100C8D06D /* HeyDJ.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 68125E7420D8D55100C8D06D /* HeyDJ.xcdatamodeld */; };
+		68125E7820D8D55200C8D06D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68125E7720D8D55200C8D06D /* Assets.xcassets */; };
+		68125E7B20D8D55200C8D06D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68125E7920D8D55200C8D06D /* LaunchScreen.storyboard */; };
+		68125E8620D8D55200C8D06D /* HeyDJTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68125E8520D8D55200C8D06D /* HeyDJTests.swift */; };
+		68125E9120D8D55200C8D06D /* HeyDJUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68125E9020D8D55200C8D06D /* HeyDJUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		68125E8220D8D55200C8D06D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 68125E6220D8D55100C8D06D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 68125E6920D8D55100C8D06D;
+			remoteInfo = HeyDJ;
+		};
+		68125E8D20D8D55200C8D06D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 68125E6220D8D55100C8D06D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 68125E6920D8D55100C8D06D;
+			remoteInfo = HeyDJ;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		68125E6A20D8D55100C8D06D /* HeyDJ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeyDJ.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		68125E6D20D8D55100C8D06D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		68125E6F20D8D55100C8D06D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		68125E7220D8D55100C8D06D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		68125E7520D8D55100C8D06D /* HeyDJ.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HeyDJ.xcdatamodel; sourceTree = "<group>"; };
+		68125E7720D8D55200C8D06D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		68125E7A20D8D55200C8D06D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		68125E7C20D8D55200C8D06D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68125E8120D8D55200C8D06D /* HeyDJTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeyDJTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		68125E8520D8D55200C8D06D /* HeyDJTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeyDJTests.swift; sourceTree = "<group>"; };
+		68125E8720D8D55200C8D06D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68125E8C20D8D55200C8D06D /* HeyDJUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeyDJUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		68125E9020D8D55200C8D06D /* HeyDJUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeyDJUITests.swift; sourceTree = "<group>"; };
+		68125E9220D8D55200C8D06D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		68125E6720D8D55100C8D06D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68125E7E20D8D55200C8D06D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68125E8920D8D55200C8D06D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		68125E6120D8D55100C8D06D = {
+			isa = PBXGroup;
+			children = (
+				68125E6C20D8D55100C8D06D /* HeyDJ */,
+				68125E8420D8D55200C8D06D /* HeyDJTests */,
+				68125E8F20D8D55200C8D06D /* HeyDJUITests */,
+				68125E6B20D8D55100C8D06D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		68125E6B20D8D55100C8D06D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				68125E6A20D8D55100C8D06D /* HeyDJ.app */,
+				68125E8120D8D55200C8D06D /* HeyDJTests.xctest */,
+				68125E8C20D8D55200C8D06D /* HeyDJUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		68125E6C20D8D55100C8D06D /* HeyDJ */ = {
+			isa = PBXGroup;
+			children = (
+				68125E6D20D8D55100C8D06D /* AppDelegate.swift */,
+				68125E6F20D8D55100C8D06D /* ViewController.swift */,
+				68125E7120D8D55100C8D06D /* Main.storyboard */,
+				68125E7720D8D55200C8D06D /* Assets.xcassets */,
+				68125E7920D8D55200C8D06D /* LaunchScreen.storyboard */,
+				68125E7C20D8D55200C8D06D /* Info.plist */,
+				68125E7420D8D55100C8D06D /* HeyDJ.xcdatamodeld */,
+			);
+			path = HeyDJ;
+			sourceTree = "<group>";
+		};
+		68125E8420D8D55200C8D06D /* HeyDJTests */ = {
+			isa = PBXGroup;
+			children = (
+				68125E8520D8D55200C8D06D /* HeyDJTests.swift */,
+				68125E8720D8D55200C8D06D /* Info.plist */,
+			);
+			path = HeyDJTests;
+			sourceTree = "<group>";
+		};
+		68125E8F20D8D55200C8D06D /* HeyDJUITests */ = {
+			isa = PBXGroup;
+			children = (
+				68125E9020D8D55200C8D06D /* HeyDJUITests.swift */,
+				68125E9220D8D55200C8D06D /* Info.plist */,
+			);
+			path = HeyDJUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		68125E6920D8D55100C8D06D /* HeyDJ */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68125E9520D8D55200C8D06D /* Build configuration list for PBXNativeTarget "HeyDJ" */;
+			buildPhases = (
+				68125E6620D8D55100C8D06D /* Sources */,
+				68125E6720D8D55100C8D06D /* Frameworks */,
+				68125E6820D8D55100C8D06D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HeyDJ;
+			productName = HeyDJ;
+			productReference = 68125E6A20D8D55100C8D06D /* HeyDJ.app */;
+			productType = "com.apple.product-type.application";
+		};
+		68125E8020D8D55200C8D06D /* HeyDJTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68125E9820D8D55200C8D06D /* Build configuration list for PBXNativeTarget "HeyDJTests" */;
+			buildPhases = (
+				68125E7D20D8D55200C8D06D /* Sources */,
+				68125E7E20D8D55200C8D06D /* Frameworks */,
+				68125E7F20D8D55200C8D06D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				68125E8320D8D55200C8D06D /* PBXTargetDependency */,
+			);
+			name = HeyDJTests;
+			productName = HeyDJTests;
+			productReference = 68125E8120D8D55200C8D06D /* HeyDJTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		68125E8B20D8D55200C8D06D /* HeyDJUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68125E9B20D8D55200C8D06D /* Build configuration list for PBXNativeTarget "HeyDJUITests" */;
+			buildPhases = (
+				68125E8820D8D55200C8D06D /* Sources */,
+				68125E8920D8D55200C8D06D /* Frameworks */,
+				68125E8A20D8D55200C8D06D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				68125E8E20D8D55200C8D06D /* PBXTargetDependency */,
+			);
+			name = HeyDJUITests;
+			productName = HeyDJUITests;
+			productReference = 68125E8C20D8D55200C8D06D /* HeyDJUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		68125E6220D8D55100C8D06D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = AppyPie;
+				TargetAttributes = {
+					68125E6920D8D55100C8D06D = {
+						CreatedOnToolsVersion = 9.4;
+					};
+					68125E8020D8D55200C8D06D = {
+						CreatedOnToolsVersion = 9.4;
+						TestTargetID = 68125E6920D8D55100C8D06D;
+					};
+					68125E8B20D8D55200C8D06D = {
+						CreatedOnToolsVersion = 9.4;
+						TestTargetID = 68125E6920D8D55100C8D06D;
+					};
+				};
+			};
+			buildConfigurationList = 68125E6520D8D55100C8D06D /* Build configuration list for PBXProject "HeyDJ" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 68125E6120D8D55100C8D06D;
+			productRefGroup = 68125E6B20D8D55100C8D06D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				68125E6920D8D55100C8D06D /* HeyDJ */,
+				68125E8020D8D55200C8D06D /* HeyDJTests */,
+				68125E8B20D8D55200C8D06D /* HeyDJUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		68125E6820D8D55100C8D06D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68125E7B20D8D55200C8D06D /* LaunchScreen.storyboard in Resources */,
+				68125E7820D8D55200C8D06D /* Assets.xcassets in Resources */,
+				68125E7320D8D55100C8D06D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68125E7F20D8D55200C8D06D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68125E8A20D8D55200C8D06D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		68125E6620D8D55100C8D06D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68125E7620D8D55100C8D06D /* HeyDJ.xcdatamodeld in Sources */,
+				68125E7020D8D55100C8D06D /* ViewController.swift in Sources */,
+				68125E6E20D8D55100C8D06D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68125E7D20D8D55200C8D06D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68125E8620D8D55200C8D06D /* HeyDJTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68125E8820D8D55200C8D06D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68125E9120D8D55200C8D06D /* HeyDJUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		68125E8320D8D55200C8D06D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 68125E6920D8D55100C8D06D /* HeyDJ */;
+			targetProxy = 68125E8220D8D55200C8D06D /* PBXContainerItemProxy */;
+		};
+		68125E8E20D8D55200C8D06D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 68125E6920D8D55100C8D06D /* HeyDJ */;
+			targetProxy = 68125E8D20D8D55200C8D06D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		68125E7120D8D55100C8D06D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				68125E7220D8D55100C8D06D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		68125E7920D8D55200C8D06D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				68125E7A20D8D55200C8D06D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		68125E9320D8D55200C8D06D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		68125E9420D8D55200C8D06D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		68125E9620D8D55200C8D06D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MMVGVUJYAG;
+				INFOPLIST_FILE = HeyDJ/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.customTeam.HeyDJ;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		68125E9720D8D55200C8D06D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MMVGVUJYAG;
+				INFOPLIST_FILE = HeyDJ/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.customTeam.HeyDJ;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		68125E9920D8D55200C8D06D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MMVGVUJYAG;
+				INFOPLIST_FILE = HeyDJTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.customTeam.HeyDJTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HeyDJ.app/HeyDJ";
+			};
+			name = Debug;
+		};
+		68125E9A20D8D55200C8D06D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MMVGVUJYAG;
+				INFOPLIST_FILE = HeyDJTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.customTeam.HeyDJTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HeyDJ.app/HeyDJ";
+			};
+			name = Release;
+		};
+		68125E9C20D8D55200C8D06D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MMVGVUJYAG;
+				INFOPLIST_FILE = HeyDJUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.customTeam.HeyDJUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HeyDJ;
+			};
+			name = Debug;
+		};
+		68125E9D20D8D55200C8D06D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MMVGVUJYAG;
+				INFOPLIST_FILE = HeyDJUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.customTeam.HeyDJUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HeyDJ;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		68125E6520D8D55100C8D06D /* Build configuration list for PBXProject "HeyDJ" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68125E9320D8D55200C8D06D /* Debug */,
+				68125E9420D8D55200C8D06D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		68125E9520D8D55200C8D06D /* Build configuration list for PBXNativeTarget "HeyDJ" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68125E9620D8D55200C8D06D /* Debug */,
+				68125E9720D8D55200C8D06D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		68125E9820D8D55200C8D06D /* Build configuration list for PBXNativeTarget "HeyDJTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68125E9920D8D55200C8D06D /* Debug */,
+				68125E9A20D8D55200C8D06D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		68125E9B20D8D55200C8D06D /* Build configuration list for PBXNativeTarget "HeyDJUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68125E9C20D8D55200C8D06D /* Debug */,
+				68125E9D20D8D55200C8D06D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		68125E7420D8D55100C8D06D /* HeyDJ.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				68125E7520D8D55100C8D06D /* HeyDJ.xcdatamodel */,
+			);
+			currentVersion = 68125E7520D8D55100C8D06D /* HeyDJ.xcdatamodel */;
+			path = HeyDJ.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 68125E6220D8D55100C8D06D /* Project object */;
+}
