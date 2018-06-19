@@ -15,6 +15,7 @@
 		68125E7B20D8D55200C8D06D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68125E7920D8D55200C8D06D /* LaunchScreen.storyboard */; };
 		68125E8620D8D55200C8D06D /* HeyDJTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68125E8520D8D55200C8D06D /* HeyDJTests.swift */; };
 		68125E9120D8D55200C8D06D /* HeyDJUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68125E9020D8D55200C8D06D /* HeyDJUITests.swift */; };
+		68125E9F20D8E6A600C8D06D /* MapForItinerary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68125E9E20D8E6A600C8D06D /* MapForItinerary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		68125E8C20D8D55200C8D06D /* HeyDJUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeyDJUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		68125E9020D8D55200C8D06D /* HeyDJUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeyDJUITests.swift; sourceTree = "<group>"; };
 		68125E9220D8D55200C8D06D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68125E9E20D8E6A600C8D06D /* MapForItinerary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapForItinerary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				68125E7920D8D55200C8D06D /* LaunchScreen.storyboard */,
 				68125E7C20D8D55200C8D06D /* Info.plist */,
 				68125E7420D8D55100C8D06D /* HeyDJ.xcdatamodeld */,
+				68125E9E20D8E6A600C8D06D /* MapForItinerary.swift */,
 			);
 			path = HeyDJ;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68125E9F20D8E6A600C8D06D /* MapForItinerary.swift in Sources */,
 				68125E7620D8D55100C8D06D /* HeyDJ.xcdatamodeld in Sources */,
 				68125E7020D8D55100C8D06D /* ViewController.swift in Sources */,
 				68125E6E20D8D55100C8D06D /* AppDelegate.swift in Sources */,
