@@ -109,12 +109,14 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czC-Xb-OHn">
                                         <rect key="frame" x="0.0" y="0.0" width="76.333333333333329" height="69.666666666666671"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="+91"/>
+                                        <connections>
+                                            <action selector="countryPickerAction:" destination="BRt-Sq-XxY" eventType="touchUpInside" id="sWh-SJ-RWn"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d3v-pI-Wpy">
                                         <rect key="frame" x="78.333333333333343" y="0.0" width="259.33333333333326" height="69.666666666666671"/>
-                                        <color key="backgroundColor" red="1" green="0.28529598740000001" blue="0.48387691440000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -125,7 +127,6 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" red="0.058823529409999999" green="0.015686274510000001" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="KYY-Sf-ECn" firstAttribute="leading" secondItem="gBQ-x7-BR3" secondAttribute="leading" id="0DY-0C-A5l"/>
                                     <constraint firstItem="czC-Xb-OHn" firstAttribute="leading" secondItem="gBQ-x7-BR3" secondAttribute="leading" id="5xv-7w-MnW"/>
@@ -237,6 +238,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="SIGN UP" id="k1W-sv-6lP"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="countryPickerBtn" destination="czC-Xb-OHn" id="Pb1-ST-2Uc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ukx-fv-TuS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        IQKeyboardManager.sharedManager().enable = true
         
 //        UINavigationBar.appearance().barTintColor = UIColor(red: 99.0/255.0, green:99.0/255.0, blue: 99.0/255.0, alpha: 1.0)
 //        UINavigationBar.appearance().tintColor = UIColor.white

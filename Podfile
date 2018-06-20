@@ -13,6 +13,8 @@ pod 'SDWebImage'
 pod 'Alamofire'
 pod 'SwiftyJSON'
 pod 'KVNProgress'
+pod 'IQKeyboardManagerSwift'
+pod 'MICountryPicker', :git => 'https://github.com/mustafaibrahim989/MICountryPicker.git', :branch => 'master'
 
 
   target 'HeyDJTests' do

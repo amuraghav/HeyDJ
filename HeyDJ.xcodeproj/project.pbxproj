@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04C736C720DAC98100E45FF1 /* IQKeyboardManagerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C736C620DAC98100E45FF1 /* IQKeyboardManagerSwift.framework */; };
 		0C3F8D20DAEF7575DFF71A2D /* Pods_HeyDJ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 641EF79E13132D7052CD3077 /* Pods_HeyDJ.framework */; };
 		0E39EBE24AC604AEC3681E7E /* Pods_HeyDJTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91C6353217E43D0AFAF1728 /* Pods_HeyDJTests.framework */; };
 		6811D97320DA65E90035BEEA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6811D97220DA65E90035BEEA /* Images.xcassets */; };
@@ -70,6 +71,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04C736C620DAC98100E45FF1 /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IQKeyboardManagerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		632CA960ECA538B9C280C936 /* Pods_HeyDJUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeyDJUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		641EF79E13132D7052CD3077 /* Pods_HeyDJ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeyDJ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6811D97220DA65E90035BEEA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04C736C720DAC98100E45FF1 /* IQKeyboardManagerSwift.framework in Frameworks */,
 				0C3F8D20DAEF7575DFF71A2D /* Pods_HeyDJ.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,6 +340,7 @@
 		FE2E6F0769FAF9CBCC4CE745 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04C736C620DAC98100E45FF1 /* IQKeyboardManagerSwift.framework */,
 				641EF79E13132D7052CD3077 /* Pods_HeyDJ.framework */,
 				E91C6353217E43D0AFAF1728 /* Pods_HeyDJTests.framework */,
 				632CA960ECA538B9C280C936 /* Pods_HeyDJUITests.framework */,
@@ -515,14 +519,18 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-HeyDJ/Pods-HeyDJ-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/KVNProgress/KVNProgress.framework",
+				"${BUILT_PRODUCTS_DIR}/MICountryPicker/MICountryPicker.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KVNProgress.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MICountryPicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
