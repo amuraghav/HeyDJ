@@ -101,6 +101,15 @@ extension UIButton{
         
         
     }
+    
+    
+    func setButtonRadius() {
+        
+        self.layer.cornerRadius = 5
+        self.clipsToBounds = true
+    }
+   
+    
 }
 
 extension UIView {
@@ -206,6 +215,9 @@ extension UINavigationController{
     
     
 }
+
+
+
 
 
 //TODO: Uncomment code for set image from url  without AFNetworking

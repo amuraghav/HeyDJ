@@ -10,6 +10,11 @@
 		04C736C720DAC98100E45FF1 /* IQKeyboardManagerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C736C620DAC98100E45FF1 /* IQKeyboardManagerSwift.framework */; };
 		0C3F8D20DAEF7575DFF71A2D /* Pods_HeyDJ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 641EF79E13132D7052CD3077 /* Pods_HeyDJ.framework */; };
 		0E39EBE24AC604AEC3681E7E /* Pods_HeyDJTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91C6353217E43D0AFAF1728 /* Pods_HeyDJTests.framework */; };
+		680FF13120DB744B00FA5A9D /* MICountryPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 680FF13020DB744B00FA5A9D /* MICountryPicker.framework */; };
+		680FF13420DBA04C00FA5A9D /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680FF13320DBA04C00FA5A9D /* LoginVC.swift */; };
+		680FF13720DBA0AC00FA5A9D /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680FF13620DBA0AC00FA5A9D /* ForgotPasswordVC.swift */; };
+		680FF13A20DBACA900FA5A9D /* MobileVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680FF13920DBACA900FA5A9D /* MobileVerificationVC.swift */; };
+		680FF13D20DBC02500FA5A9D /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680FF13C20DBC02500FA5A9D /* ResetPasswordVC.swift */; };
 		6811D97320DA65E90035BEEA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6811D97220DA65E90035BEEA /* Images.xcassets */; };
 		6811D97620DA6C690035BEEA /* DemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6811D97520DA6C690035BEEA /* DemoModel.swift */; };
 		6811D97A20DA76640035BEEA /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6811D97920DA76640035BEEA /* SignUpVC.swift */; };
@@ -74,6 +79,11 @@
 		04C736C620DAC98100E45FF1 /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IQKeyboardManagerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		632CA960ECA538B9C280C936 /* Pods_HeyDJUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeyDJUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		641EF79E13132D7052CD3077 /* Pods_HeyDJ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeyDJ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		680FF13020DB744B00FA5A9D /* MICountryPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MICountryPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		680FF13320DBA04C00FA5A9D /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		680FF13620DBA0AC00FA5A9D /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
+		680FF13920DBACA900FA5A9D /* MobileVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileVerificationVC.swift; sourceTree = "<group>"; };
+		680FF13C20DBC02500FA5A9D /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
 		6811D97220DA65E90035BEEA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6811D97520DA6C690035BEEA /* DemoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoModel.swift; sourceTree = "<group>"; };
 		6811D97920DA76640035BEEA /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
@@ -134,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				680FF13120DB744B00FA5A9D /* MICountryPicker.framework in Frameworks */,
 				04C736C720DAC98100E45FF1 /* IQKeyboardManagerSwift.framework in Frameworks */,
 				0C3F8D20DAEF7575DFF71A2D /* Pods_HeyDJ.framework in Frameworks */,
 			);
@@ -171,6 +182,38 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		680FF13220DB9FFE00FA5A9D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				680FF13320DBA04C00FA5A9D /* LoginVC.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		680FF13520DBA06F00FA5A9D /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				680FF13620DBA0AC00FA5A9D /* ForgotPasswordVC.swift */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		680FF13820DBAC8700FA5A9D /* MobileVerification */ = {
+			isa = PBXGroup;
+			children = (
+				680FF13920DBACA900FA5A9D /* MobileVerificationVC.swift */,
+			);
+			path = MobileVerification;
+			sourceTree = "<group>";
+		};
+		680FF13B20DBBFF000FA5A9D /* ResetPasswordVC */ = {
+			isa = PBXGroup;
+			children = (
+				680FF13C20DBC02500FA5A9D /* ResetPasswordVC.swift */,
+			);
+			path = ResetPasswordVC;
+			sourceTree = "<group>";
+		};
 		6811D97420DA6C3A0035BEEA /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +225,10 @@
 		6811D97720DA73CE0035BEEA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				680FF13B20DBBFF000FA5A9D /* ResetPasswordVC */,
+				680FF13820DBAC8700FA5A9D /* MobileVerification */,
+				680FF13520DBA06F00FA5A9D /* ForgotPassword */,
+				680FF13220DB9FFE00FA5A9D /* Login */,
 				6811D97820DA76440035BEEA /* SignUp */,
 			);
 			path = ViewControllers;
@@ -340,6 +387,7 @@
 		FE2E6F0769FAF9CBCC4CE745 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				680FF13020DB744B00FA5A9D /* MICountryPicker.framework */,
 				04C736C620DAC98100E45FF1 /* IQKeyboardManagerSwift.framework */,
 				641EF79E13132D7052CD3077 /* Pods_HeyDJ.framework */,
 				E91C6353217E43D0AFAF1728 /* Pods_HeyDJTests.framework */,
@@ -582,11 +630,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				680FF13420DBA04C00FA5A9D /* LoginVC.swift in Sources */,
+				680FF13D20DBC02500FA5A9D /* ResetPasswordVC.swift in Sources */,
+				680FF13A20DBACA900FA5A9D /* MobileVerificationVC.swift in Sources */,
 				68125E9F20D8E6A600C8D06D /* MapForItinerary.swift in Sources */,
 				68125E7620D8D55100C8D06D /* HeyDJ.xcdatamodeld in Sources */,
 				68125ED320D9294600C8D06D /* AGWebServiceManager.swift in Sources */,
 				68125EF620D9294600C8D06D /* Utils.swift in Sources */,
 				6811D97620DA6C690035BEEA /* DemoModel.swift in Sources */,
+				680FF13720DBA0AC00FA5A9D /* ForgotPasswordVC.swift in Sources */,
 				68125EDE20D9294600C8D06D /* SSCommonClass.swift in Sources */,
 				68125ED920D9294600C8D06D /* AppConstants.swift in Sources */,
 				6811D97A20DA76640035BEEA /* SignUpVC.swift in Sources */,

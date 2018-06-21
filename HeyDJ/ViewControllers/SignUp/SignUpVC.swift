@@ -11,13 +11,18 @@ import MICountryPicker
 
 class SignUpVC: UIViewController,MICountryPickerDelegate {
 
+    @IBOutlet weak var signupBtn: UIButton!
     @IBOutlet weak var countryPickerBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+signupBtn.setButtonRadius()
+       
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func backBtnAction(_ sender: Any) {
+         self.navigationController?.popViewController(animated: true)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -45,6 +50,11 @@ class SignUpVC: UIViewController,MICountryPickerDelegate {
         
     }
     
+    @IBAction func loginBtnAction(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+        
+        
+    }
     /*
     // MARK: - Navigation
 

@@ -163,7 +163,12 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # define SWIFT_DEPRECATED_OBJC(Msg) SWIFT_DEPRECATED_MSG(Msg)
 #endif
 #if __has_feature(modules)
+@import ObjectiveC;
 @import UIKit;
+@import CoreLocation;
+@import CoreGraphics;
+@import Foundation;
+@import MICountryPicker;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -181,6 +186,19 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+
+SWIFT_CLASS("_TtC5HeyDJ22AGWebServiceController")
+@interface AGWebServiceController : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC5HeyDJ19AGWebServiceManager")
+@interface AGWebServiceManager : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
+@end
+
 @class UIWindow;
 @class UIApplication;
 
@@ -196,9 +214,137 @@ SWIFT_CLASS("_TtC5HeyDJ11AppDelegate")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+
+@class NSCoder;
+
+SWIFT_CLASS("_TtC5HeyDJ12DemoTextFiel")
+@interface DemoTextFiel : UITextField
+- (void)drawRect:(CGRect)rect;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class UIButton;
 @class NSBundle;
-@class NSCoder;
+
+SWIFT_CLASS("_TtC5HeyDJ16ForgotPasswordVC")
+@interface ForgotPasswordVC : UIViewController
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified submitBtn;
+- (void)viewDidLoad;
+- (IBAction)backBtnAction:(id _Nonnull)sender;
+- (void)didReceiveMemoryWarning;
+- (IBAction)submitBtnAction:(id _Nonnull)sender;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC5HeyDJ12InternetUtil")
+@interface InternetUtil : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC5HeyDJ7LoginVC")
+@interface LoginVC : UIViewController
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified loginBtn;
+- (void)viewDidLoad;
+- (void)didReceiveMemoryWarning;
+- (IBAction)forgotPasswordAction:(id _Nonnull)sender;
+- (IBAction)signupBtnAction:(id _Nonnull)sender;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC5HeyDJ15MapForItinerary")
+@interface MapForItinerary : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC5HeyDJ20MobileVerificationVC")
+@interface MobileVerificationVC : UIViewController
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified verifyBtn;
+- (void)viewDidLoad;
+- (IBAction)backBtnAction:(id _Nonnull)sender;
+- (void)didReceiveMemoryWarning;
+- (IBAction)verifyBtnAction:(id _Nonnull)sender;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+
+SWIFT_CLASS("_TtC5HeyDJ17PasswordTextField")
+@interface PasswordTextField : UITextField <UITextFieldDelegate>
+- (BOOL)textFieldShouldReturn:(UITextField * _Nonnull)textField SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)textField:(UITextField * _Nonnull)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString * _Nonnull)string SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC5HeyDJ15ResetPasswordVC")
+@interface ResetPasswordVC : UIViewController
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified submitBtn;
+- (void)viewDidLoad;
+- (IBAction)backBtnAction:(id _Nonnull)sender;
+- (void)didReceiveMemoryWarning;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class CLLocationManager;
+
+SWIFT_CLASS("_TtC5HeyDJ17SSLocationManager")
+@interface SSLocationManager : NSObject <CLLocationManagerDelegate>
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (void)locationManager:(CLLocationManager * _Nonnull)manager didFailWithError:(NSError * _Nonnull)error;
+- (void)locationManager:(CLLocationManager * _Nonnull)manager didUpdateLocations:(NSArray<CLLocation *> * _Nonnull)locations;
+@end
+
+@class MICountryPicker;
+
+SWIFT_CLASS("_TtC5HeyDJ8SignUpVC")
+@interface SignUpVC : UIViewController <MICountryPickerDelegate>
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified signupBtn;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified countryPickerBtn;
+- (void)viewDidLoad;
+- (IBAction)backBtnAction:(id _Nonnull)sender;
+- (void)didReceiveMemoryWarning;
+- (IBAction)countryPickerAction:(id _Nonnull)sender;
+- (void)countryPicker:(MICountryPicker * _Nonnull)picker didSelectCountryWithName:(NSString * _Nonnull)name code:(NSString * _Nonnull)code;
+- (void)countryPicker:(MICountryPicker * _Nonnull)picker didSelectCountryWithName:(NSString * _Nonnull)name code:(NSString * _Nonnull)code dialCode:(NSString * _Nonnull)dialCode;
+- (IBAction)loginBtnAction:(id _Nonnull)sender;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SWIFT_CLASS("_TtC5HeyDJ21UserDefaultController")
+@interface UserDefaultController : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 
 SWIFT_CLASS("_TtC5HeyDJ14ViewController")
 @interface ViewController : UIViewController
