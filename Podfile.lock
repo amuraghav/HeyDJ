@@ -1,0 +1,47 @@
+PODS:
+  - Alamofire (4.7.2)
+  - IQKeyboardManagerSwift (6.0.4)
+  - KVNProgress (2.3.1)
+  - MICountryPicker (0.2.2)
+  - SDWebImage (4.4.1):
+    - SDWebImage/Core (= 4.4.1)
+  - SDWebImage/Core (4.4.1)
+  - SlideMenuControllerSwift (4.0.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - IQKeyboardManagerSwift
+  - KVNProgress
+  - MICountryPicker (from `https://github.com/mustafaibrahim989/MICountryPicker.git`, branch `master`)
+  - SDWebImage
+  - SlideMenuControllerSwift
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - IQKeyboardManagerSwift
+    - KVNProgress
+    - SDWebImage
+    - SlideMenuControllerSwift
+
+EXTERNAL SOURCES:
+  MICountryPicker:
+    :branch: master
+    :git: https://github.com/mustafaibrahim989/MICountryPicker.git
+
+CHECKOUT OPTIONS:
+  MICountryPicker:
+    :commit: 43a40241da087c81c4f26715283c12ac1335ebb2
+    :git: https://github.com/mustafaibrahim989/MICountryPicker.git
+
+SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  IQKeyboardManagerSwift: 36dbe324b4f9793f5f41ba5227f3e7c76dfefd50
+  KVNProgress: 8167b1f19e2758290c0b6143020ed9dcbb0477a1
+  MICountryPicker: 82122c5f918bc9f9e2c510793fffd188dc8d38ce
+  SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
+  SlideMenuControllerSwift: 021d6318201c53d4d4d3710517d43d6c556c7dd0
+
+PODFILE CHECKSUM: e6f64f019d0b4c47b95b6c2c26d86fc0302ae984
+
+COCOAPODS: 1.5.3

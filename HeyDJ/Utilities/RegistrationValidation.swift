@@ -35,39 +35,36 @@ class RegistrationValidation {
         return (mobile.count >= 6 && mobile.count <= 14) ? false : true;
     }
     
-//    func checkValidation(controller: SignUpVC) -> String {
-//        if(controller.NameTF.text?.count == 0 || controller.mobileTF.text?.count == 0 || controller.emailTF.text?.count == 0 || controller.passwordTF.text?.count == 0 || controller.confirmPasswordTF.text?.count == 0){
-//            
-//            return mandetoryfieldStrings
-//        }
-//        else if(isValidMobile(mobile: controller.mobileTF.text!)){
-//            
-//            return mobileNotValidStrings
-//            
-//        }
-//        else if(!isValidEmail(email: controller.emailTF.text!)){
-//            
-//            return emailNotValidStrings
-//        }
-//        else if (isValidPassword(password: controller.passwordTF.text!)){
-//            return passwordNotValidStrings
-//        }
-//        else if (controller.passwordTF.text != controller.confirmPasswordTF.text){
-//            
-//            return passwordNotMatchStrings
-//        }
-//        else if (!controller.T_C_Status){
-//            
-//            return T_and_C_Strings
-//        }
-//        else{
-//            
-//            return ""
-//        }
-//        
-//        
-//    }
-//    
+    func checkValidationSignUp(controller: SignUpVC) -> String {
+        if(controller.nameTF.text?.count == 0 || controller.mobileTF.text?.count == 0 || controller.emailTF.text?.count == 0 || controller.passwordTF.text?.count == 0){
+            
+            return mandetoryfieldStrings
+        }
+        else if(isValidMobile(mobile: controller.mobileTF.text!)){
+            
+            return mobileNotValidStrings
+            
+        }
+        else if(!isValidEmail(email: controller.emailTF.text!)){
+            
+            return emailNotValidStrings
+        }
+        else if (isValidPassword(password: controller.passwordTF.text!)){
+            return passwordNotValidStrings
+        }
+      
+        else if (!controller.checkBoxBtn.isSelected){
+            
+            return T_and_C_Strings
+        }
+        else{
+            
+            return ""
+        }
+        
+        
+    }
+//
 //    func checkValidationEditProfile(controller: EditProfileVC) -> String {
 //        if(controller.nameTF.text?.count == 0 || controller.mobileTF.text?.count == 0 || controller.emailTF.text?.count == 0){
 //            

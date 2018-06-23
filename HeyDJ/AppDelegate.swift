@@ -9,24 +9,27 @@
 import UIKit
 import CoreData
 import IQKeyboardManagerSwift
-
+import UserNotifications
+import SlideMenuControllerSwift
+let SharedAppDelegate = (UIApplication.shared.delegate) as! AppDelegate
 @UIApplicationMain
+
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+var parentNavigationController:UINavigationController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         IQKeyboardManager.shared.enable = true
+        registerForPushNotifications()
         
-        
-//        UINavigationBar.appearance().barTintColor = UIColor(red: 99.0/255.0, green:99.0/255.0, blue: 99.0/255.0, alpha: 1.0)
-//        UINavigationBar.appearance().tintColor = UIColor.white
-//        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
-        // Override point for customization after application launch.
+        sendToHome()
+    
         return true
     }
+
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -96,6 +99,75 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    
+ // MARK: - Remote Notification Methods
+    
+    
+    
+    
+    func registerForPushNotifications() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
+            (granted, error) in
+            print("Permission granted: \(granted)")
+            
+            
+            guard granted else { return }
+            self.getNotificationSettings()
+        }
+        }
+    
+    
+    func getNotificationSettings() {
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            print("Notification settings: \(settings)")
+            
+            guard settings.authorizationStatus == .authorized else { return }
+            
+            DispatchQueue.main.async(execute: {
+                UIApplication.shared.registerForRemoteNotifications()
+            })
+           
+            
+        }
+    }
+    
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let tokenParts = deviceToken.map { data -> String in
+            return String(format: "%02.2hhx", data)
+        }
+        
+        let token = tokenParts.joined()
+        UserDefaultController.sharedInstance.saveDeviceToken(deviceToken: token)
+        print("Device Token: \(token)")
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Failed to register: \(error)")
+    }
+    
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        
+    }
 
-}
+    
+    func sendToHome(){
+//        let homeVC = mainStoryboardObj.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+        SharedAppDelegate.parentNavigationController = mainStoryboardObj.instantiateViewController(withIdentifier: "HomeNavigationVC") as! HomeNavigationVC
+        let arMenuViewControllerVC = mainStoryboardObj.instantiateViewController(withIdentifier: "SidePanelVC") as! SidePanelVC
+        let sideMenuController = SlideMenuController(mainViewController:  SharedAppDelegate.parentNavigationController!, leftMenuViewController: arMenuViewControllerVC)
+        
+        SharedAppDelegate.window?.rootViewController = sideMenuController
+        SharedAppDelegate.window?.makeKeyAndVisible()
+        
+    }
+    
+    
+    
+    
+    }
+    
+
 

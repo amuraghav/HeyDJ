@@ -8,14 +8,21 @@
 
 import UIKit
 import MICountryPicker
+import Alamofire
 
 class SignUpVC: UIViewController,MICountryPickerDelegate {
 
+    @IBOutlet weak var passwordTF: UITextField!
+    @IBOutlet weak var emailTF: UITextField!
+    @IBOutlet weak var mobileTF: UITextField!
+    @IBOutlet weak var nameTF: UITextField!
+    @IBOutlet weak var checkBoxBtn: UIButton!
     @IBOutlet weak var signupBtn: UIButton!
     @IBOutlet weak var countryPickerBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-signupBtn.setButtonRadius()
+      signupBtn.setButtonRadius()
+        checkBoxBtn.isSelected = false
        
         // Do any additional setup after loading the view.
     }
@@ -55,6 +62,113 @@ signupBtn.setButtonRadius()
         
         
     }
+    
+    
+    func getOtpWebService() {
+ 
+        
+//        device_id         Mandatory
+//        device_token         Mandatory
+//        device_type         Mandatory ( 1- Android, 2 - Iphone )
+//        email         Mandatory
+//        mobile         Mandatory
+//        password         Mandatory
+//        country_code         Mandatory ( +91 )
+//        debug_mode         Mandatory
+//        name         Mandatory
+
+        var paramsForSignUp:[String:Any]            = [String:Any]()
+      
+        paramsForSignUp[kdevice_id]         = UIDevice.current.identifierForVendor!.uuidString
+        paramsForSignUp[kdevice_token]      = UserDefaultController.sharedInstance.getDeviceToken()
+        paramsForSignUp[kdevice_type]       = DEVICE_TYPE
+        paramsForSignUp[kemail]             = emailTF.text
+        paramsForSignUp[kmobile]            = mobileTF.text
+        paramsForSignUp[kname]              = nameTF.text
+        paramsForSignUp[kpassword]          = passwordTF.text
+        paramsForSignUp[kdebugMode]         = DEBUG_MODE
+        paramsForSignUp[kcountryCode]       = countryPickerBtn.titleLabel?.text
+
+        let params :[String : Any] =
+            [
+                kcountryCode                    : countryPickerBtn.titleLabel?.text ?? "+91",
+                kmobile                         : mobileTF.text ?? ""
+
+        ]
+       SSCommonClass.showActivityIndicator(controller: self)
+
+        AGWebServiceManager.sharedInstance.WebServiceGetOTPSignUp(params: params, success: { (response) in
+            SSCommonClass.hideActivityIndicator()
+
+            let status = response.response_status
+
+            switch(status){
+            case 0? :
+
+                Globals.showAlert(message: response.response_msg!, controller: self)
+
+            case 1? :
+//                Globals.showAlert(message: response.response_msg!, controller: self)
+                let mobileVerificationVC           = mainStoryboardObj.instantiateViewController(withIdentifier: "MobileVerificationVC") as! MobileVerificationVC
+
+                mobileVerificationVC.signUpParameters     = paramsForSignUp
+                mobileVerificationVC.isFromSignUp  = true
+                mobileVerificationVC.mobileOTP = response.response_data?.sms_otp
+                self.navigationController?.pushViewController(mobileVerificationVC, animated: true)
+
+
+
+            default:
+
+
+                SSCommonClass.hideActivityIndicator()
+
+
+            }
+
+
+
+        }) { (error) in
+            SSCommonClass.hideActivityIndicator()
+        }
+
+
+
+
+    }
+    @IBAction func signupBtnAction(_ sender: Any) {
+        
+        let reachabilityManager         = NetworkReachabilityManager()
+        let reacabilitystatus           = reachabilityManager?.isReachable
+        if(reacabilitystatus!){
+            let registrationValidationObj   = RegistrationValidation()
+            let message = registrationValidationObj.checkValidationSignUp(controller: self)
+
+
+        if(message.count > 0){
+
+            Globals.showAlert(message: message, controller: self)
+
+        }
+        else{
+
+            getOtpWebService()
+        }
+        }
+        else{
+
+            Globals.showAlert(message: notConnetedToNetwork, controller: self)
+        }
+    }
+    
+    @IBAction func checkBoxBtnAction(_ sender: Any) {
+        
+        checkBoxBtn.isSelected = (checkBoxBtn.isSelected) ? false : true
+ 
+    }
+    @IBAction func termCondiBtnAction(_ sender: Any) {
+    }
+    
     /*
     // MARK: - Navigation
 

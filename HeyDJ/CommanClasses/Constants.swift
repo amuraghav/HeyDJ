@@ -12,7 +12,7 @@ import UIKit
 let mainStoryboardObj = UIStoryboard(name: "Main", bundle: nil)
 let SCREEN_WIDTH            = UIScreen.main.bounds.width
 let SCREEN_HEIGHT           = UIScreen.main.bounds.height
-let navigationBarColor      = UIColor(red: 246.0/255.0, green: 141.0/255.0, blue: 32.0/255.0, alpha: 1.0)
+let navigationBarColor      = UIColor(red: 15.0/255.0, green: 4.0/255.0, blue: 22.0/255.0, alpha: 1.0)
 let cellUnselectedColor     = UIColor(red: 61.0/255.0, green: 61.0/255.0, blue: 61.0/255.0, alpha: 1.0)
 let DEVICE_TYPE             = "2"
 let LANGUAGE                = "en"
@@ -34,29 +34,29 @@ let DROPPED                 = 2
 
 
 //Development
-//let kBaseURL                    = "http://taxishake.onsisdev.info/passengerapi/"
-//let kImageDriverURL             = "http://taxishake.onsisdev.info/public/media/driver/"
-//let kImagePassengerURL          = "http://taxishake.onsisdev.info/public/media/passenger/"
-//let kVehicleTypeBaseURL         = "http://taxishake.onsisdev.info/public/media/vehicletypefare/"
-//let PUBNUB_PUBLISH_KEY          = "pub-c-f3cb5c10-ac1b-402d-9574-03155372ee85"
-//let PUBNUB_SUBSCRIBE_KEY        = "sub-c-32ecad3a-dbfc-11e7-a9ef-2291f454b5f8"
+let kBaseURL                    = "http://heydj.onsisdev.info/api/"
+let kImageDriverURL             = "http://taxishake.onsisdev.info/public/media/driver/"
+let kImagePassengerURL          = "http://taxishake.onsisdev.info/public/media/passenger/"
+let kVehicleTypeBaseURL         = "http://taxishake.onsisdev.info/public/media/vehicletypefare/"
+let PUBNUB_PUBLISH_KEY          = "pub-c-f3cb5c10-ac1b-402d-9574-03155372ee85"
+let PUBNUB_SUBSCRIBE_KEY        = "sub-c-32ecad3a-dbfc-11e7-a9ef-2291f454b5f8"
 
 
 
 //Live
-let kBaseURL                    = "http://35.173.154.15/admin/passengerapi/"
-let kImageDriverURL             = "http://35.173.154.15/admin/public/media/driver/"
-let kImagePassengerURL          = "http://35.173.154.15/admin/public/media/passenger/"
-let kVehicleTypeBaseURL         = "http://35.173.154.15/admin/public/media/vehicletypefare/"
-let PUBNUB_PUBLISH_KEY          = "pub-c-ace93a61-25a8-4969-8f6e-5f2b660d1ebb"
-let PUBNUB_SUBSCRIBE_KEY        = "sub-c-59f7e240-1cfd-11e8-97e5-2e7e45341bc1"
+//let kBaseURL                    = "http://35.173.154.15/admin/passengerapi/"
+//let kImageDriverURL             = "http://35.173.154.15/admin/public/media/driver/"
+//let kImagePassengerURL          = "http://35.173.154.15/admin/public/media/passenger/"
+//let kVehicleTypeBaseURL         = "http://35.173.154.15/admin/public/media/vehicletypefare/"
+//let PUBNUB_PUBLISH_KEY          = "pub-c-ace93a61-25a8-4969-8f6e-5f2b660d1ebb"
+//let PUBNUB_SUBSCRIBE_KEY        = "sub-c-59f7e240-1cfd-11e8-97e5-2e7e45341bc1"
 
 
 //App Services
 
 let kloginMethod                  = "login"
 let ksignupMethod                 = "signup"
-let ksendotpnormalsignupMethod    = "sendotpnormalsignup"
+let ksendotpnormalsignupMethod    = "sendotp"
 let klogoutMethod                 = "logout"
 let kgenerateOTPForgotMethod      = "generateforgortotp"
 let kverifyOTPForgotMethod        = "checkotp"
@@ -81,6 +81,10 @@ let kgetMembershipListing          = "getMembershipListing"
 //messages
 let notConnetedToNetwork         = "Sorry,Unable to process you are not connected to Internet."
 let reviewTextFieldPlaceholder         = "Please share your experience with us, it will help us provide us better service."
+let forgotPasswordMobileVerifyString = "Check your mobile. We just sent you a verification code. Please enter it below to choose new password."
+let signupMobileVerifyString = "Enter verification code that was sent to your registered mobile number."
+let OTPError = "Code you enter is not matched. Please enter valid code."
+
 
 
 
@@ -187,6 +191,7 @@ let kpromocode_text                            = "promocode_text"
 //MARK:======= USER DEFAULT KEY =====
 
 let DEVICE_TOKEN                = "deviceToken"
+let DEVICE_ID                = "deviceId"
 let SESSION_TOKEN               = "sessionToken"
 let USER_PROFILE                = "user_profile"
 let CAR_TYPES                   = "car_types"

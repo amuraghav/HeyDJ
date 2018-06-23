@@ -165,9 +165,9 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_feature(modules)
 @import ObjectiveC;
 @import UIKit;
+@import Foundation;
 @import CoreLocation;
 @import CoreGraphics;
-@import Foundation;
 @import MICountryPicker;
 #endif
 
@@ -211,6 +211,9 @@ SWIFT_CLASS("_TtC5HeyDJ11AppDelegate")
 - (void)applicationWillEnterForeground:(UIApplication * _Nonnull)application;
 - (void)applicationDidBecomeActive:(UIApplication * _Nonnull)application;
 - (void)applicationWillTerminate:(UIApplication * _Nonnull)application;
+- (void)application:(UIApplication * _Nonnull)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData * _Nonnull)deviceToken;
+- (void)application:(UIApplication * _Nonnull)application didFailToRegisterForRemoteNotificationsWithError:(NSError * _Nonnull)error;
+- (void)application:(UIApplication * _Nonnull)application didReceiveRemoteNotification:(NSDictionary * _Nonnull)userInfo;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -240,6 +243,27 @@ SWIFT_CLASS("_TtC5HeyDJ16ForgotPasswordVC")
 @end
 
 
+SWIFT_CLASS("_TtC5HeyDJ16HomeNavigationVC")
+@interface HomeNavigationVC : UINavigationController
+- (void)viewDidLoad;
+- (void)didReceiveMemoryWarning;
+- (nonnull instancetype)initWithNavigationBarClass:(Class _Nullable)navigationBarClass toolbarClass:(Class _Nullable)toolbarClass OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=5.0);
+- (nonnull instancetype)initWithRootViewController:(UIViewController * _Nonnull)rootViewController OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC5HeyDJ6HomeVC")
+@interface HomeVC : UIViewController
+- (void)viewDidLoad;
+- (void)didReceiveMemoryWarning;
+- (IBAction)sideMenuBtnAction:(id _Nonnull)sender;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC5HeyDJ12InternetUtil")
 @interface InternetUtil : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -263,14 +287,20 @@ SWIFT_CLASS("_TtC5HeyDJ15MapForItinerary")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UILabel;
+@class UIImageView;
 
 SWIFT_CLASS("_TtC5HeyDJ20MobileVerificationVC")
 @interface MobileVerificationVC : UIViewController
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified verifyBtn;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified textLabel;
+@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified rightImageView;
+@property (nonatomic, weak) IBOutlet UITextField * _Null_unspecified OTPTextField;
 - (void)viewDidLoad;
 - (IBAction)backBtnAction:(id _Nonnull)sender;
 - (void)didReceiveMemoryWarning;
 - (IBAction)verifyBtnAction:(id _Nonnull)sender;
+- (IBAction)resendBtnAction:(id _Nonnull)sender;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -306,10 +336,58 @@ SWIFT_CLASS("_TtC5HeyDJ17SSLocationManager")
 - (void)locationManager:(CLLocationManager * _Nonnull)manager didUpdateLocations:(NSArray<CLLocation *> * _Nonnull)locations;
 @end
 
+
+SWIFT_CLASS("_TtC5HeyDJ19SideMenuOptionsCell")
+@interface SideMenuOptionsCell : UITableViewCell
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified menuItemLabel;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified menuLabel;
+@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified menuImageView;
+- (void)awakeFromNib;
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated;
+- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC5HeyDJ19SideMenuProfileCell")
+@interface SideMenuProfileCell : UITableViewCell
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified userNameLabel;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified profilePicButton;
+- (void)awakeFromNib;
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated;
+- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class UITableView;
+
+SWIFT_CLASS("_TtC5HeyDJ11SidePanelVC")
+@interface SidePanelVC : UIViewController
+@property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified sidePanelTableView;
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)didReceiveMemoryWarning;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface SidePanelVC (SWIFT_EXTENSION(HeyDJ)) <UITableViewDataSource, UITableViewDelegate>
+- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+@end
+
 @class MICountryPicker;
 
 SWIFT_CLASS("_TtC5HeyDJ8SignUpVC")
 @interface SignUpVC : UIViewController <MICountryPickerDelegate>
+@property (nonatomic, weak) IBOutlet UITextField * _Null_unspecified passwordTF;
+@property (nonatomic, weak) IBOutlet UITextField * _Null_unspecified emailTF;
+@property (nonatomic, weak) IBOutlet UITextField * _Null_unspecified mobileTF;
+@property (nonatomic, weak) IBOutlet UITextField * _Null_unspecified nameTF;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified checkBoxBtn;
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified signupBtn;
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified countryPickerBtn;
 - (void)viewDidLoad;
@@ -319,6 +397,19 @@ SWIFT_CLASS("_TtC5HeyDJ8SignUpVC")
 - (void)countryPicker:(MICountryPicker * _Nonnull)picker didSelectCountryWithName:(NSString * _Nonnull)name code:(NSString * _Nonnull)code;
 - (void)countryPicker:(MICountryPicker * _Nonnull)picker didSelectCountryWithName:(NSString * _Nonnull)name code:(NSString * _Nonnull)code dialCode:(NSString * _Nonnull)dialCode;
 - (IBAction)loginBtnAction:(id _Nonnull)sender;
+- (IBAction)signupBtnAction:(id _Nonnull)sender;
+- (IBAction)checkBoxBtnAction:(id _Nonnull)sender;
+- (IBAction)termCondiBtnAction:(id _Nonnull)sender;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC5HeyDJ5TipVC")
+@interface TipVC : UIViewController
+- (void)viewDidLoad;
+- (IBAction)backBtnAction:(id _Nonnull)sender;
+- (void)didReceiveMemoryWarning;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end

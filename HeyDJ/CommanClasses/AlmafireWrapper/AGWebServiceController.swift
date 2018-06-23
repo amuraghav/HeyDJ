@@ -9,7 +9,7 @@
 
 import UIKit
 import Alamofire
-import SwiftyJSON
+//import SwiftyJSON
 
 
 //:=========================================================================
@@ -142,7 +142,7 @@ class AGWebServiceController: NSObject {
     
     //MARK:- POST REQUEST
     
-    class func POSTRequest(url:String,methodName:String,param :JSONDictionary, success:@escaping (JSON) -> Void, failure:@escaping (Error) -> Void){
+    class func POSTRequest(url:String,methodName:String,param :JSONDictionary, success:@escaping (Data) -> Void, failure:@escaping (Error) -> Void){
         
         let  urlString = "\(url)\(methodName)"
         print("**************** Service URL :--\(url)\(methodName)")
@@ -156,20 +156,42 @@ class AGWebServiceController: NSObject {
             switch(response.result) {
             case .success(_):
                 
-                let json: AnyObject? = try! JSONSerialization.jsonObject(with: (response.data!), options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject?
+                success(response.data!)
                 
-                if let jsonDict = json as? JSONDictionary {
-                    
-                    print_debug("\n\nRECEIVED DATA \n\n\n\(jsonDict)")
-                    
-                    success(JSON(jsonDict))
-                    
-                } else {
-                    
-                    Utils.showProgressWithError(status:  "Error in JSON Parsing")
-
-                    print_debug("Error in JSON Parsing")
-                }
+                
+//                do{
+//                    let obj =  try JSONDecoder().decode(ResponseModel.self, from: response.data!)
+//
+//                    success(obj)
+//
+//                }
+//
+//                    catch let error as NSError {
+//
+//                        Utils.showProgressWithError(status:  "Error in JSON Parsing")
+//
+//                        print_debug(error)
+//                        return
+//                    }
+                
+                
+//                let json: AnyObject? = try! JSONSerialization.jsonObject(with: (response.data!), options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject?
+                
+                
+                
+                
+//                if let jsonDict = json as? JSONDictionary {
+//                    
+//                    print_debug("\n\nRECEIVED DATA \n\n\n\(jsonDict)")
+//                    
+//                    success(JSON(jsonDict))
+//                    
+//                } else {
+//                    
+//                    Utils.showProgressWithError(status:  "Error in JSON Parsing")
+//
+//                    print_debug("Error in JSON Parsing")
+//                }
                 break
                 
             case .failure(_):
@@ -264,126 +286,126 @@ class AGWebServiceController: NSObject {
     
     //MARK:- POST REQUEST
     
-    class func POSTRequestWithMultiPart(url:String,method:String,param :JSONDictionary,imageKeyArr:[String],imageArr : [UIImage],addImageflag : Bool, success:@escaping (JSON) -> Void, failure:@escaping (Error) -> Void){
-        
-        let  urlString = "\(url)\(method)"
-        
-        
-        print("**************** Service URL :--\(url)\(method)")
-        
-        print("\n \n ******With Parameters**********:--\(param) \n\n")
-        
-        
-        Alamofire.upload(multipartFormData: { (multipartFormData:MultipartFormData?) in
-            
-            for (key, value) in param {
-                multipartFormData?.append((value as AnyObject).data(using: String.Encoding.utf8.rawValue)!, withName: key)
-            }
-            
-            
-            if addImageflag{
-                guard let data = multipartFormData else {
-                    return
-                }
-                
-                for (index,image) in imageArr.enumerated(){
-                    
-                    //                guard let userimage = image else {
-                    //                    return
-                    //                }
-                    let imagedata:Data = UIImageJPEGRepresentation(image, 1)!
-                    
-                    data.append(imagedata, withName: imageKeyArr[index],fileName: imageKeyArr[index] + ".png", mimeType: EXT_TYPE)
-                    
-                }
-                
-            }
-            
-        },
-                         to:urlString,method : .post ,headers : header )
-        { (result) in
-            switch result {
-            case .success(let upload, _, _):
-                
-                upload.uploadProgress(closure: { (progress) in
-                    print("Upload Progress: \(progress.fractionCompleted)")
-                })
-                
-                upload.responseJSON { response in
-                    print(response.result.error as Any)
-                    
-                    let json: AnyObject? = try! JSONSerialization.jsonObject(with: (response.data!), options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject?
-                    
-                    if let jsonDict = json as? JSONDictionary {
-                        
-                        print_debug("\n\nRECEIVED DATA \n\n\n\(jsonDict)")
-                        
-                        success(JSON(jsonDict))
-                        
-                    } else {
-                        
-                        Utils.showProgressWithError(status:  "Error in JSON Parsing")
-                        print_debug("Error in JSON Parsing")
-                    }
-                }
-                
-            case .failure(let encodingError):
-                failure(encodingError)
-                
-                print(encodingError)
-            }
-        }
-        
-    }
-    
+//    class func POSTRequestWithMultiPart(url:String,method:String,param :JSONDictionary,imageKeyArr:[String],imageArr : [UIImage],addImageflag : Bool, success:@escaping (JSON) -> Void, failure:@escaping (Error) -> Void){
+//
+//        let  urlString = "\(url)\(method)"
+//
+//
+//        print("**************** Service URL :--\(url)\(method)")
+//
+//        print("\n \n ******With Parameters**********:--\(param) \n\n")
+//
+//
+//        Alamofire.upload(multipartFormData: { (multipartFormData:MultipartFormData?) in
+//
+//            for (key, value) in param {
+//                multipartFormData?.append((value as AnyObject).data(using: String.Encoding.utf8.rawValue)!, withName: key)
+//            }
+//
+//
+//            if addImageflag{
+//                guard let data = multipartFormData else {
+//                    return
+//                }
+//
+//                for (index,image) in imageArr.enumerated(){
+//
+//                    //                guard let userimage = image else {
+//                    //                    return
+//                    //                }
+//                    let imagedata:Data = UIImageJPEGRepresentation(image, 1)!
+//
+//                    data.append(imagedata, withName: imageKeyArr[index],fileName: imageKeyArr[index] + ".png", mimeType: EXT_TYPE)
+//
+//                }
+//
+//            }
+//
+//        },
+//                         to:urlString,method : .post ,headers : header )
+//        { (result) in
+//            switch result {
+//            case .success(let upload, _, _):
+//
+//                upload.uploadProgress(closure: { (progress) in
+//                    print("Upload Progress: \(progress.fractionCompleted)")
+//                })
+//
+//                upload.responseJSON { response in
+//                    print(response.result.error as Any)
+//
+//                    let json: AnyObject? = try! JSONSerialization.jsonObject(with: (response.data!), options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject?
+//
+//                    if let jsonDict = json as? JSONDictionary {
+//
+//                        print_debug("\n\nRECEIVED DATA \n\n\n\(jsonDict)")
+//
+//                        success(JSON(jsonDict))
+//
+//                    } else {
+//
+//                        Utils.showProgressWithError(status:  "Error in JSON Parsing")
+//                        print_debug("Error in JSON Parsing")
+//                    }
+//                }
+//
+//            case .failure(let encodingError):
+//                failure(encodingError)
+//
+//                print(encodingError)
+//            }
+//        }
+//
+//    }
+//
     
     //MARK:- GET REQUEST
     
-    class func GETRequestWithMultiPart(url:String,method:String, success:@escaping (JSON) -> Void, failure:@escaping (Error) -> Void){
-        
-        let  urlString = "\(url)\(method)"
-        
-        
-        print("**************** Service URL :--\(url)\(method)")
-        
-        
-        Alamofire.upload(multipartFormData: { (multipartFormData:MultipartFormData?) in}, to:urlString,method : .get ,headers : [:] ){ (result) in
-            
-            switch result {
-            case .success(let upload, _, _):
-
-                upload.uploadProgress(closure: { (progress) in
-                    print("Upload Progress: \(progress.fractionCompleted)")
-                })
-                
-                upload.responseJSON { response in
-                    print(response.result.error as Any)
-                    
-                    
-                    let json: AnyObject? = try! JSONSerialization.jsonObject(with: (response.data!), options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject?
-                    
-                    if let jsonDict = json as? JSONDictionary {
-                        
-                        print_debug("\n\nRECEIVED DATA \n\n\n\(jsonDict)")
-                        
-                        success(JSON(jsonDict))
-                        
-                    } else {
-                        
-                        Utils.showProgressWithError(status:  "Error in JSON Parsing")
-
-                        print_debug("Error in JSON Parsing")
-                    }
-                }
-                
-            case .failure(let encodingError):
-                failure(encodingError)
-
-                print(encodingError)
-            }
-        }
-        
-    }
+//    class func GETRequestWithMultiPart(url:String,method:String, success:@escaping (JSON) -> Void, failure:@escaping (Error) -> Void){
+//        
+//        let  urlString = "\(url)\(method)"
+//        
+//        
+//        print("**************** Service URL :--\(url)\(method)")
+//        
+//        
+//        Alamofire.upload(multipartFormData: { (multipartFormData:MultipartFormData?) in}, to:urlString,method : .get ,headers : [:] ){ (result) in
+//            
+//            switch result {
+//            case .success(let upload, _, _):
+//
+//                upload.uploadProgress(closure: { (progress) in
+//                    print("Upload Progress: \(progress.fractionCompleted)")
+//                })
+//                
+//                upload.responseJSON { response in
+//                    print(response.result.error as Any)
+//                    
+//                    
+//                    let json: AnyObject? = try! JSONSerialization.jsonObject(with: (response.data!), options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject?
+//                    
+//                    if let jsonDict = json as? JSONDictionary {
+//                        
+//                        print_debug("\n\nRECEIVED DATA \n\n\n\(jsonDict)")
+//                        
+//                        success(JSON(jsonDict))
+//                        
+//                    } else {
+//                        
+//                        Utils.showProgressWithError(status:  "Error in JSON Parsing")
+//
+//                        print_debug("Error in JSON Parsing")
+//                    }
+//                }
+//                
+//            case .failure(let encodingError):
+//                failure(encodingError)
+//
+//                print(encodingError)
+//            }
+//        }
+//        
+//    }
     
 
 //:=========================================================================

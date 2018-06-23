@@ -16,14 +16,20 @@ class UserDefaultController: NSObject {
     func saveDeviceToken(deviceToken : String) {
         userDefault.setValue(deviceToken, forKey: DEVICE_TOKEN)
     }
+   
     
     func saveSessionToken(sessionToken : String) {
         userDefault.setValue(sessionToken, forKey: SESSION_TOKEN)
     }
     
     
-    func saveProfile(userProfile : [String:Any]) {
-        let profileData: Data = NSKeyedArchiver.archivedData(withRootObject: userProfile )
+    func saveProfile(userProfile : Profile) {
+//        let profileData: Data = NSKeyedArchiver.archivedData(withRootObject: userProfile )
+        
+        
+        let jsonEncoder = JSONEncoder()
+        let profileData = try? jsonEncoder.encode(userProfile)
+
         userDefault.setValue(profileData, forKey: USER_PROFILE)
     }
     
@@ -38,6 +44,8 @@ class UserDefaultController: NSObject {
         return (result != nil) ? result! : ""
     }
     
+   
+    
     func getSessionToken() -> String {
         let result  = userDefault.string(forKey: SESSION_TOKEN)
         return (result != nil) ? result! : ""
@@ -51,14 +59,19 @@ class UserDefaultController: NSObject {
         return (result != nil) ? result! : ""
     }
     
-    func getUserProfile() -> [String:Any] {
+    func getUserProfile() -> Profile? {
         let result  = userDefault.object(forKey: USER_PROFILE) as? Data
         if(result != nil){
             
-            return NSKeyedUnarchiver.unarchiveObject(with: result!) as! [String : Any]
+//            return NSKeyedUnarchiver.unarchiveObject(with: result!) as? Profile
+            
+            let jsonDecoder = JSONDecoder()
+            let profile = try? jsonDecoder.decode(Profile.self, from: result!)
+            return profile
+            
         }
         else{
-            return [:]
+            return nil
         }
         
         

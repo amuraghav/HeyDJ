@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SDWebImage
 import KVNProgress
-import SwiftyJSON
+//import SwiftyJSON
 
 class SSCommonClass{
     
@@ -19,7 +19,7 @@ class SSCommonClass{
     
     
     //MARK:- PROPERTIES
-    var activitIndicator:UIActivityIndicatorView =  UIActivityIndicatorView()
+    static let activitIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     var indicatorView:UIView!
     internal typealias CallbackHandler = (_ action:Bool?)->Void
     
@@ -163,24 +163,24 @@ class SSCommonClass{
     
     //MARK:- saveUserDefault
     //:---
-    class func saveUserDefaultDict (object : [String:JSON] , key : String) {
-        
-        let userDefault :UserDefaults = UserDefaults.standard
-        let nsdata:Data = NSKeyedArchiver.archivedData(withRootObject: object)
-        userDefault.setValue(nsdata, forKey: key)
-        userDefault.synchronize()
-    }
+//    class func saveUserDefaultDict (object : [String:JSON] , key : String) {
+//
+//        let userDefault :UserDefaults = UserDefaults.standard
+//        let nsdata:Data = NSKeyedArchiver.archivedData(withRootObject: object)
+//        userDefault.setValue(nsdata, forKey: key)
+//        userDefault.synchronize()
+//    }
     
     //MARK:- getUserDefaultForKeyDict
-    class func getUserDefaultForKeyDict( key : String) -> JSON? {
-        
-        let userDefault :UserDefaults = UserDefaults.standard
-        if let  obj : JSON = userDefault.object(forKey: key) as! JSON?{
-            return obj
-        }else {
-            return nil
-        }
-    }
+//    class func getUserDefaultForKeyDict( key : String) -> JSON? {
+//        
+//        let userDefault :UserDefaults = UserDefaults.standard
+//        if let  obj : JSON = userDefault.object(forKey: key) as! JSON?{
+//            return obj
+//        }else {
+//            return nil
+//        }
+//    }
     
     //MARK:- getUserDefaultForKey
     class func getUserDefaultForKey ( key : String) -> AnyObject? {
@@ -432,6 +432,22 @@ class SSCommonClass{
         
         
     }
+    
+  class func showActivityIndicator(controller : UIViewController) {
+
+        controller.view.addSubview(SSCommonClass.activitIndicator)
+        SSCommonClass.activitIndicator.frame = controller.view.bounds
+        SSCommonClass.activitIndicator.color = UIColor.red
+        SSCommonClass.activitIndicator.startAnimating()
+    }
+    
+    
+ class   func hideActivityIndicator() {
+    
+        SSCommonClass.activitIndicator.stopAnimating()
+        SSCommonClass.activitIndicator.hidesWhenStopped = true
+    }
+    
     
     
     

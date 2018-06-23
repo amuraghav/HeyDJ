@@ -9,12 +9,13 @@ target 'HeyDJ' do
 
 
 pod 'SDWebImage'
-#pod 'SlideMenuControllerSwift'
+pod 'SlideMenuControllerSwift'
 pod 'Alamofire'
-pod 'SwiftyJSON'
+#pod 'SwiftyJSON'
 pod 'KVNProgress'
 pod 'IQKeyboardManagerSwift'
 pod 'MICountryPicker', :git => 'https://github.com/mustafaibrahim989/MICountryPicker.git', :branch => 'master'
+#pod 'SideMenuController'
 
 
   target 'HeyDJTests' do

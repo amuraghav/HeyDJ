@@ -8,7 +8,7 @@
 
 import UIKit
 import Foundation
-import SwiftyJSON
+//import SwiftyJSON
 
 //:=========================================================================
 //MARK:- ########## GLOABLE KEYS ###############
@@ -41,7 +41,8 @@ class AGWebServiceManager: NSObject {
 //MARK:- ########## BLOCK INITIALIZATION ###############
 //:=========================================================================
     
-    internal typealias webServiceSuccessBlock = (_ JSON:JSON)->Void
+//    internal typealias webServiceSuccessBlock = (_ JSON:JSON)->Void
+    internal typealias webServiceSuccessBlock = (_ response:ResponseModel)->Void
     internal typealias webServiceFailBlock = (_ ERROR:NSError)->Void
     
     
@@ -163,29 +164,95 @@ class AGWebServiceManager: NSObject {
 //    }
 //
 //
-//    //MARK:- Get OTP SignUp SERVICE
-//
-//    func WebServiceGetOTPSignUp(params:JSONDictionary,success:@escaping (JSON) -> Void, failure:@escaping (Error) -> Void){
-//
-//
-//        AGWebServiceController.POSTRequest(url: kBaseURL, methodName: ksendotpnormalsignupMethod, param: params, success: { (JSON) in
-//            let status = JSON["response_key"].int
-//            Utils.dismissProgress()
-//            if(status != SESSION_NOT_EXIST){
-//
-//                success(JSON)
-//            }else{
-//
-//                SharedAppDelegate.sendToLogin()
-//
-//            }
-//
-//
-//        }) { (Error) in
-//            failure(Error)
-//        }
-//
-//    }
+    //MARK:- Get OTP SignUp SERVICE
+
+    func WebServiceGetOTPSignUp(params:JSONDictionary,success:@escaping (ResponseModel) -> Void, failure:@escaping (Error) -> Void){
+
+
+        AGWebServiceController.POSTRequest(url: kBaseURL, methodName: ksendotpnormalsignupMethod, param: params, success: { (response) in
+            
+            do{
+                let obj =  try JSONDecoder().decode(ResponseModel.self, from: response)
+                let status = obj.response_status
+                
+                
+                if(status != SESSION_NOT_EXIST){
+                    print(obj)
+                        success(obj)
+                    }else{
+                    
+                    //                SharedAppDelegate.sendToLogin()
+                    
+                }
+                
+                
+                
+                
+                
+            }
+                
+            catch let error as NSError {
+                
+               SSCommonClass.hideActivityIndicator()
+                
+                print_debug(error)
+                return
+            }
+            
+        
+
+
+        }) { (Error) in
+            failure(Error)
+        }
+
+    }
+    
+    
+    
+    //MARK:- SignUp SERVICE
+    
+    func WebServiceSignUp(params:JSONDictionary,success:@escaping (ResponseModel) -> Void, failure:@escaping (Error) -> Void){
+        
+        
+        AGWebServiceController.POSTRequest(url: kBaseURL, methodName: ksignupMethod, param: params, success: { (response) in
+            
+            do{
+                let obj =  try JSONDecoder().decode(ResponseModel.self, from: response)
+                let status = obj.response_status
+                
+                
+                if(status != SESSION_NOT_EXIST){
+                    print(obj)
+                    success(obj)
+                }else{
+                    
+                    //                SharedAppDelegate.sendToLogin()
+                    
+                }
+                
+                
+                
+                
+                
+            }
+                
+            catch let error as NSError {
+                
+                SSCommonClass.hideActivityIndicator()
+                
+                print_debug(error)
+                return
+            }
+            
+            
+            
+            
+        }) { (Error) in
+            failure(Error)
+        }
+        
+    }
 //
 //
 //    //MARK:- POST LOGOUT SERVICE
