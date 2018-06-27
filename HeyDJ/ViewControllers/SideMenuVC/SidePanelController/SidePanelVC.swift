@@ -9,6 +9,7 @@
 import UIKit
 import SlideMenuControllerSwift
 import LocalAuthentication
+import Alamofire
 
 class SidePanelVC: UIViewController {
     
@@ -78,11 +79,40 @@ class SidePanelVC: UIViewController {
 extension SidePanelVC : UITableViewDelegate,UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let tipVC = mainStoryboardObj.instantiateViewController(withIdentifier: "TipVC") as! TipVC
-        self.slideMenuController()?.toggleLeft()
-//                    SharedAppDelegate.parentNavigationController?.viewControllers[0] = tipVC
-       
-                    SharedAppDelegate.parentNavigationController?.pushViewController(tipVC, animated: true)
+        
+        switch indexPath.row {
+        case 5:
+            SSCommonClass.alertPermissionMessage(message: "Are you sure you want to log out?", viewController: self, callback: { (boolValue) in
+                                if boolValue == true{
+                                    let reachabilityManager         = NetworkReachabilityManager()
+                                    let reacabilitystatus           = reachabilityManager?.isReachable
+                                    if(reacabilitystatus!){
+                                        
+                                        self.serviceLogout()
+                                        
+                                    }
+                                    else{
+                                        
+                                        Globals.showAlert(message: notConnetedToNetwork, controller: self)
+                                    }
+                                }
+                            })
+            
+        default:
+            break
+        }
+        
+        
+        
+        
+        
+        
+        
+//        let tipVC = mainStoryboardObj.instantiateViewController(withIdentifier: "TipVC") as! TipVC
+//        self.slideMenuController()?.toggleLeft()
+////                    SharedAppDelegate.parentNavigationController?.viewControllers[0] = tipVC
+//
+//                    SharedAppDelegate.parentNavigationController?.pushViewController(tipVC, animated: true)
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return SideMenuItemsType.count + 1
@@ -137,6 +167,60 @@ extension SidePanelVC : UITableViewDelegate,UITableViewDataSource {
         }
         return 80.0
     }
+    
+    
+    //    MARK:-ServiceLogout
+    func serviceLogout (){
+        let params :[String : Any] =
+            [
+                ksession                    : UserDefaultController.sharedInstance.getSessionToken()
+                
+        ]
+        SSCommonClass.showActivityIndicator(controller:self )
+        
+        AGWebServiceManager.sharedInstance.WebServiceLogout(params: params, success: { (response) in
+            SSCommonClass.hideActivityIndicator()
+            
+            let status = response.response_status
+            
+            switch(status){
+            case 0? :
+                
+                Globals.showAlert(message: response.response_msg!, controller: self)
+                
+            case 1? :
+                
+                SharedAppDelegate.sendToLogin()
+                
+            default:
+                
+                
+                SSCommonClass.hideActivityIndicator()
+                
+                
+            }
+            
+            
+            
+        }) { (error) in
+            SSCommonClass.hideActivityIndicator()
+        }
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     //MARK: Selector Method.
 //    func editProfileSelector(sender:UIButton){
 //        let lastVC = SharedAppDelegate.parentNavigationController?.viewControllers.last!
@@ -343,73 +427,8 @@ extension SidePanelVC : UITableViewDelegate,UITableViewDataSource {
     
     
     
-    //MARK:
-    //MARK:-ServiceLogout
-//    func serviceLogout (){
-//        if SSAFNetworking.isConnectedToNetwork {
-//            guard let userId = SSCommonClass.getUserDefaultForKey(key:UserDefaultsKey.userId.rawValue) as? String  else {
-//                SSCommonClass.ToastShowMessage(msg: NSLocalizedString("Device Id Getting Error!", comment: ""),viewController:self)
-//                return
-//            }
-//
-//            let sessionToken =   SSCommonClass.getUserDefaultForKey(key: UserDefaultsKey.sessionToken.rawValue) as! String
-//
-//
-//            let params:JSONDictionary =
-//                [ kParamUser_id: userId,
-//                  kParamDevice_id: SSCommonClass.getUserDefaultForKey(key: UserDefaultsKey.deviceId.rawValue) as? String ?? "",
-//                  kParamDevice_token:SSCommonClass.getUserDefaultForKey(key: UserDefaultsKey.deviceToken.rawValue) as? String ?? "",
-//                  kParamDevice_type:"2",
-//                  ksession_token    : sessionToken,
-//            ]
-//            SSCommonClass.showProgress(loadingText: "")
-//            SSWebServiceManager.WebServiceLogout(params: params, webServiceSuccess: { (response) in
-//                print("\n\nLOGOUT RESPONSE\n\n \(response)")
-//
-//                let response_invalid = response.dictionary?["data"]?["response_invalid"].intValue
-//                if(response_invalid == 0){
-//
-//
-//                if let response_status_code = response.dictionary?["data"]?["status"].intValue{
-//                    if response_status_code == 1{
-//                        if let  _ = SSCommonClass.getUserDefaultForKey(key: UserDefaultsKey.userId.rawValue) as? String{
-//                            SSCommonClass.saveUserDefault(object: "", key: UserDefaultsKey.userId.rawValue)
-//                        }
-//                        DispatchQueue.global(qos: .background).async {
-//                            DispatchQueue.main.async {
-//
-//                                SidePanelVC.clearUserDefault()
-//
-//                                SidePanelVC.sendToLogin()
-//
-////                                 Timer.scheduledTimer(timeInterval:2.0, target: self, selector: #selector(SidePanelVC.sendToLogin), userInfo: nil, repeats: false)
-//                            }
-//                        }
-//                    }
-//                    if response_status_code == 0{
-//                        SSCommonClass.dismissProgress()
-//                        SSCommonClass.ToastShowMessage(msg: (response.dictionary?["data"]?["msg"].string)!, viewController: self)
-//                    }
-//                }
-//
-//                }
-//                else{
-//
-//                    SSCommonClass.saveUserDefault(object: "", key: UserDefaultsKey.userId.rawValue)
-//                    SidePanelVC.clearUserDefault()
-//                    SidePanelVC.sendToLogin()
-//
-//                }
-//
-//            }, webServiceFailure: { (error) in
-//                SSCommonClass.dismissProgress()
-//                print("Error- \(error)")
-//            })
-//        }
-//        else{
-//            SSCommonClass.ToastShowMessage(msg: AppConstants.NoInternetMessage,viewController:self)
-//        }
-//    }
+
+
 
     
 //   class func clearUserDefault(){

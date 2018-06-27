@@ -181,13 +181,9 @@ class AGWebServiceManager: NSObject {
                         success(obj)
                     }else{
                     
-                    //                SharedAppDelegate.sendToLogin()
+                                    SharedAppDelegate.sendToLogin()
                     
                 }
-                
-                
-                
-                
                 
             }
                 
@@ -227,7 +223,7 @@ class AGWebServiceManager: NSObject {
                     success(obj)
                 }else{
                     
-                    //                SharedAppDelegate.sendToLogin()
+                                    SharedAppDelegate.sendToLogin()
                     
                 }
                 
@@ -255,78 +251,130 @@ class AGWebServiceManager: NSObject {
     }
 //
 //
-//    //MARK:- POST LOGOUT SERVICE
+    //MARK:- POST LOGOUT SERVICE
+
+    func WebServiceLogout(params:JSONDictionary,success:@escaping (ResponseModel) -> Void, failure:@escaping (Error) -> Void){
+
+
+        AGWebServiceController.POSTRequest(url: kBaseURL, methodName: klogoutMethod, param: params, success: { (response) in
+            do{
+                let obj =  try JSONDecoder().decode(ResponseModel.self, from: response)
+                let status = obj.response_status
+                
+                
+                if(status != SESSION_NOT_EXIST){
+                    print(obj)
+                    success(obj)
+                }else{
+                    
+                                    SharedAppDelegate.sendToLogin()
+                    
+                }
+                
+                
+                
+                
+                
+            }
+                
+            catch let error as NSError {
+                
+                SSCommonClass.hideActivityIndicator()
+                
+                print_debug(error)
+                return
+            }
+
+        }) { (Error) in
+            failure(Error)
+        }
+
+    }
 //
-//    func WebServiceLogout(params:JSONDictionary,success:@escaping (JSON) -> Void, failure:@escaping (Error) -> Void){
-//
-//
-//        AGWebServiceController.POSTRequest(url: kBaseURL, methodName: klogoutMethod, param: params, success: { (JSON) in
-//            let status = JSON["response_key"].int
-//            Utils.dismissProgress()
-//            if(status != SESSION_NOT_EXIST){
-//
-//                success(JSON)
-//            }else{
-//
-//                SharedAppDelegate.sendToLogin()
-//
-//            }
-//
-//
-//        }) { (Error) in
-//            failure(Error)
-//        }
-//
-//    }
-//
-//    //MARK:- POST LOGOUT SERVICE
-//
-//    func WebServiceLogin(params:JSONDictionary,success:@escaping (JSON) -> Void, failure:@escaping (Error) -> Void){
-//
-//
-//        AGWebServiceController.POSTRequest(url: kBaseURL, methodName: kloginMethod, param: params, success: { (JSON) in
-//            let status = JSON["response_key"].int
-//            Utils.dismissProgress()
-//            if(status != SESSION_NOT_EXIST){
-//
-//            success(JSON)
-//        }else{
-//
-//            SharedAppDelegate.sendToLogin()
-//
-//        }
-//
-//
-//        }) { (Error) in
-//            failure(Error)
-//        }
-//
-//    }
-//
-//
-//    //MARK:- POST GENERATE OTP FORGOT SERVICE
-//
-//    func WebServiceGenerateOtpForgot(params:JSONDictionary,success:@escaping (JSON) -> Void, failure:@escaping (Error) -> Void){
-//
-//
-//        AGWebServiceController.POSTRequest(url: kBaseURL, methodName: kgenerateOTPForgotMethod, param: params, success: { (JSON) in
-//            let status = JSON["response_key"].int
-//            Utils.dismissProgress()
-//            if(status != SESSION_NOT_EXIST){
-//
-//                success(JSON)
-//            }else{
-//
-//                SharedAppDelegate.sendToLogin()
-//
-//            }
-//
-//
-//        }) { (Error) in
-//            failure(Error)
-//        }
-//
-//    }
+    //MARK:- POST LOGIN SERVICE
+
+    func WebServiceLogin(params:JSONDictionary,success:@escaping (ResponseModel) -> Void, failure:@escaping (Error) -> Void){
+
+
+        AGWebServiceController.POSTRequest(url: kBaseURL, methodName: kloginMethod, param: params, success: { (response) in
+            do{
+                let obj =  try JSONDecoder().decode(ResponseModel.self, from: response)
+                let status = obj.response_status
+                
+                
+                if(status != SESSION_NOT_EXIST){
+                    print(obj)
+                    success(obj)
+                }else{
+                    
+                    //                SharedAppDelegate.sendToLogin()
+                    
+                }
+                
+                
+                
+                
+                
+            }
+                
+            catch let error as NSError {
+                
+                SSCommonClass.hideActivityIndicator()
+                
+                print_debug(error)
+                return
+            }
+            
+
+
+        }) { (Error) in
+            failure(Error)
+        }
+
+    }
+
+
+    //MARK:- POST GENERATE OTP FORGOT SERVICE
+
+    func WebServiceGenerateOtpForgot(params:JSONDictionary,success:@escaping (ResponseModel) -> Void, failure:@escaping (Error) -> Void){
+
+
+        AGWebServiceController.POSTRequest(url: kBaseURL, methodName: kgenerateOTPForgotMethod, param: params, success: { (response) in
+            do{
+                let obj =  try JSONDecoder().decode(ResponseModel.self, from: response)
+                let status = obj.response_status
+                
+                
+                if(status != SESSION_NOT_EXIST){
+                    print(obj)
+                    success(obj)
+                }else{
+                    
+                                    SharedAppDelegate.sendToLogin()
+                    
+                }
+                
+                
+                
+                
+                
+            }
+                
+            catch let error as NSError {
+                
+                SSCommonClass.hideActivityIndicator()
+                
+                print_debug(error)
+                return
+            }
+            
+
+
+        }) { (Error) in
+            failure(Error)
+        }
+
+    }
 //
 //
 //
@@ -583,29 +631,46 @@ class AGWebServiceManager: NSObject {
 //
 //
 //
-//    //MARK:- POST CHANGE PASSWORD SERVICE
-//
-//    func WebServiceChangePasswordRequest(params:JSONDictionary,success:@escaping (JSON) -> Void, failure:@escaping (Error) -> Void){
-//
-//
-//        AGWebServiceController.POSTRequest(url: kBaseURL, methodName: kchangepassword, param: params, success: { (JSON) in
-//            let status = JSON["response_key"].int
-//            Utils.dismissProgress()
-//            if(status != SESSION_NOT_EXIST){
-//
-//                success(JSON)
-//            }else{
-//
-//                SharedAppDelegate.sendToLogin()
-//
-//            }
-//
-//
-//        }) { (Error) in
-//            failure(Error)
-//        }
-//
-//    }
+    //MARK:- POST CHANGE PASSWORD SERVICE
+
+    func WebServiceChangePasswordRequest(params:JSONDictionary,success:@escaping (ResponseModel) -> Void, failure:@escaping (Error) -> Void){
+
+
+        AGWebServiceController.POSTRequest(url: kBaseURL, methodName: kresetPasswordMethod, param: params, success: { (response) in
+            do{
+                let obj =  try JSONDecoder().decode(ResponseModel.self, from: response)
+                let status = obj.response_status
+                
+                
+                if(status != SESSION_NOT_EXIST){
+                    print(obj)
+                    success(obj)
+                }else{
+                    
+                                    SharedAppDelegate.sendToLogin()
+                    
+                }
+                
+                
+                
+                
+                
+            }
+                
+            catch let error as NSError {
+                
+                SSCommonClass.hideActivityIndicator()
+                
+                print_debug(error)
+                return
+            }
+
+
+        }) { (Error) in
+            failure(Error)
+        }
+
+    }
 //
 //
 //    //MARK:- POST PROMOTIONAL LIST SERVICE

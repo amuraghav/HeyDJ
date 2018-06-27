@@ -88,45 +88,41 @@ class RegistrationValidation {
 //    }
 //    
 //    
-//    func checkValidationForLogin(controller: LoginVC) -> String {
-//        if(controller.emailTF.text?.count == 0 || controller.passwordTF.text?.count == 0){
-//            
-//            return mandetoryloginfieldStrings
-//        }
-//        else if(!isValidEmail(email: controller.emailTF.text!)){
-//            
-//            return emailNotValidStrings
-//        }
-//        else if (isValidPassword(password: controller.passwordTF.text!)){
-//            return passwordNotValidStrings
-//        }
-//        else{
-//            
-//            return ""
-//        }
-//        
-//        
-//        
-//    }
-//    
-//    func checkValidationForgotPass(controller: ForgotPasswordVC) -> String {
-//        if(controller.emailTF.text?.count == 0){
-//            
-//            return mandetoryloginfieldStrings
-//        }
-//        else if(!isValidEmail(email: controller.emailTF.text!)){
-//            
-//            return emailNotValidStrings
-//        }
-//        else{
-//            
-//            return ""
-//        }
-//        
-//        
-//        
-//    }
-//    
+    func checkValidationForLogin(controller: LoginVC) -> String {
+        if(controller.mobileTF.text?.count == 0 || controller.passwordTF.text?.count == 0){
+            
+            return mandetoryloginfieldStrings
+        }
+        else if(isValidMobile(mobile: controller.mobileTF.text!)){
+            
+            return mobileNotValidStrings
+        }
+        else if (isValidPassword(password: controller.passwordTF.text!)){
+            return passwordNotValidStrings
+        }
+        else{
+            
+            return ""
+        }
+        
+        
+        
+    }
+//
+    func checkValidationForgotPass(controller: ForgotPasswordVC) -> String {
+        if(controller.mobileNumberTF.text?.count == 0){
+            
+            return mobileNotValidStrings
+        }
+        else{
+            
+            return ""
+        }
+        
+        
+        
+    }
+//
 //    func checkValidationForResetPass(controller: ResetPasswordVC) -> String {
 //        if(controller.passwordTF.text?.count == 0 || controller.confirmPassTF.text?.count == 0){
 //            
@@ -148,28 +144,25 @@ class RegistrationValidation {
 //    }
 //    
 //    
-//    func checkValidationForChangePass(controller: ChangedPasswordVC) -> String {
-//        if(controller.newPasswordTF.text?.count == 0 || controller.confirmPasswordTF.text?.count == 0 || controller.oldPasswordTF.text?.count == 0 ){
-//            
-//            return mandetoryloginfieldStrings
-//        }
-//        else if (isValidPassword(password: controller.oldPasswordTF.text!)){
-//            return passwordNotValidStrings
-//        }
-//        else if (isValidPassword(password: controller.newPasswordTF.text!)){
-//            return passwordNotValidStrings
-//        }
-//        else if (controller.newPasswordTF.text != controller.confirmPasswordTF.text){
-//            
-//            return passwordNotMatchStrings
-//        }
-//        else{
-//            
-//            return ""
-//        }
-//        
-//        
-//    }
+    func checkValidationForChangePass(controller: ResetPasswordVC) -> String {
+        if(controller.newPasswordTF.text?.count == 0 || controller.confirmPasswordTF.text?.count == 0  ){
+            
+            return mandetoryloginfieldStrings
+        }
+        else if (isValidPassword(password: controller.newPasswordTF.text!)){
+            return passwordNotValidStrings
+        }
+        else if (controller.newPasswordTF.text != controller.confirmPasswordTF.text){
+            
+            return passwordNotMatchStrings
+        }
+        else{
+            
+            return ""
+        }
+        
+        
+    }
     
     
 }

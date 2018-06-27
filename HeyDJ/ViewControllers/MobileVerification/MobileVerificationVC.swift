@@ -36,6 +36,9 @@ class MobileVerificationVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    // MARK:- Verify Button Action
+    
     @IBAction func verifyBtnAction(_ sender: Any) {
         
         let reachabilityManager         = NetworkReachabilityManager()
@@ -44,16 +47,11 @@ class MobileVerificationVC: UIViewController {
             let isOTPMatched = (OTPTextField.text == self.mobileOTP)
             if(isOTPMatched){
                 
-                if(isFromSignUp){
-                    
-                    webserviceForSignUp()
-                }
-                else{
-                    
-                    
-                }
                 
                 
+                (isFromSignUp) ? webserviceForSignUp() : navigateToResetPassword()
+                
+               
                 
             }else{
                 
@@ -70,19 +68,31 @@ class MobileVerificationVC: UIViewController {
         
         
         
-//
-//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ResetPasswordVC") as! ResetPasswordVC
-//
-//        self.navigationController?.pushViewController(vc, animated: true)
+
     }
+    
+    // MARK:- Navigate to reset screen
+    
+    func navigateToResetPassword() {
+        
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "ResetPasswordVC") as! ResetPasswordVC
+        vc.mobileNumber = (signUpParameters!["mobile"] as! String)
+        
+                self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    // MARK:- Rset Btn Action
+    
     @IBAction func resendBtnAction(_ sender: Any) {
         
         let reachabilityManager         = NetworkReachabilityManager()
         let reacabilitystatus           = reachabilityManager?.isReachable
         if(reacabilitystatus!){
            
+            
+            (isFromSignUp) ? getOtpWebService() : getForgotPasswordService()
                 
-                getOtpWebService()
+            
             
         }
         else{
@@ -92,7 +102,7 @@ class MobileVerificationVC: UIViewController {
     }
     
     
-    
+    // MARK:- Webservice Get Otp SignUp
     
     func getOtpWebService() {
         
@@ -115,7 +125,7 @@ class MobileVerificationVC: UIViewController {
                 Globals.showAlert(message: response.response_msg!, controller: self)
                 
             case 1? :
-            
+            Globals.showAlert(message: response.response_msg!, controller: self)
                 self.mobileOTP = response.response_data?.sms_otp
 
             default:
@@ -136,6 +146,55 @@ class MobileVerificationVC: UIViewController {
         
         
     }
+    
+    
+    // MARK:- Webservice Get OTP Forgot Password
+    
+    func getForgotPasswordService() {
+        
+        let params :[String : Any] =
+            [
+                kcountryCode                    : signUpParameters!["country_code"] as! String ,
+                kmobile                         : signUpParameters!["mobile"] as! String
+                
+        ]
+        SSCommonClass.showActivityIndicator(controller: self)
+        
+        AGWebServiceManager.sharedInstance.WebServiceGenerateOtpForgot(params: params, success: { (response) in
+            SSCommonClass.hideActivityIndicator()
+            
+            let status = response.response_status
+            
+            switch(status){
+            case 0? :
+                
+                Globals.showAlert(message: response.response_msg!, controller: self)
+                
+            case 1? :
+                Globals.showAlert(message: response.response_msg!, controller: self)
+               self.mobileOTP = response.response_data?.sms_otp
+                
+                
+            default:
+                
+                
+                SSCommonClass.hideActivityIndicator()
+                
+                
+            }
+            
+            
+            
+        }) { (error) in
+            SSCommonClass.hideActivityIndicator()
+        }
+        
+        
+        
+        
+    }
+    
+    // MARK:- Webservice SignUp
     
     func webserviceForSignUp() {
         SSCommonClass.showActivityIndicator(controller: self)
@@ -179,6 +238,9 @@ class MobileVerificationVC: UIViewController {
             SSCommonClass.hideActivityIndicator()
         }
     }
+    
+    
+    
     
     
     

@@ -1,9 +1,9 @@
 version: "Apple Swift version 4.1.2 (swiftlang-902.0.54 clang-902.0.39.2)"
 options: "8ec0982ae2b1c5fa0479c6579663e68d"
-build_time: [1529758271, 819222000]
+build_time: [1529905091, 245871000]
 inputs:
   "/Users/pankajr/Documents/PankajRaghav/HeyDJProject/HeyDJ/HeyDJ/ViewControllers/Login/LoginVC.swift": [1529581356, 0]
-  "/Users/pankajr/Documents/PankajRaghav/HeyDJProject/HeyDJ/HeyDJ/ViewControllers/SideMenuVC/SidePanelCell/SideMenuOptionsCell.swift": [1529754133, 0]
+  "/Users/pankajr/Documents/PankajRaghav/HeyDJProject/HeyDJ/HeyDJ/ViewControllers/SideMenuVC/SidePanelCell/SideMenuOptionsCell.swift": [1529759348, 0]
   "/Users/pankajr/Documents/PankajRaghav/HeyDJProject/HeyDJ/HeyDJ/Models/Models.swift": [1529672735, 0]
   "/Users/pankajr/Documents/PankajRaghav/HeyDJProject/HeyDJ/HeyDJ/ViewControllers/ResetPasswordVC/ResetPasswordVC.swift": [1529583449, 0]
   "/Users/pankajr/Documents/PankajRaghav/HeyDJProject/HeyDJ/HeyDJ/ViewControllers/MobileVerification/MobileVerificationVC.swift": [1529669957, 0]
@@ -13,10 +13,10 @@ inputs:
   "/Users/pankajr/Documents/PankajRaghav/HeyDJProject/HeyDJ/HeyDJ/Utilities/Utils.swift": [1529560065, 0]
   "/Users/pankajr/Documents/PankajRaghav/HeyDJProject/HeyDJ/HeyDJ/Models/DemoModel.swift": [1529493715, 0]
   "/Users/pankajr/Documents/PankajRaghav/HeyDJProject/HeyDJ/HeyDJ/ViewControllers/ForgotPassword/ForgotPasswordVC.swift": [1529583449, 0]
-  "/Users/pankajr/Documents/PankajRaghav/HeyDJProject/HeyDJ/HeyDJ/ViewControllers/Tip/TipVC.swift": [9223372036, 854775807]
+  "/Users/pankajr/Documents/PankajRaghav/HeyDJProject/HeyDJ/HeyDJ/ViewControllers/Tip/TipVC.swift": [1529758067, 0]
   "/Users/pankajr/Documents/PankajRaghav/HeyDJProject/HeyDJ/HeyDJ/ViewControllers/Home/HomeNavigationVC.swift": [1529744052, 0]
   "/Users/pankajr/Documents/PankajRaghav/HeyDJProject/HeyDJ/HeyDJ/CommanClasses/Helper/SSCommonClass.swift": [1529733567, 0]
-  "/Users/pankajr/Documents/PankajRaghav/HeyDJProject/HeyDJ/HeyDJ/ViewControllers/SideMenuVC/SidePanelController/SidePanelVC.swift": [1529758193, 0]
+  "/Users/pankajr/Documents/PankajRaghav/HeyDJProject/HeyDJ/HeyDJ/ViewControllers/SideMenuVC/SidePanelController/SidePanelVC.swift": [1529758560, 0]
   "/Users/pankajr/Documents/PankajRaghav/HeyDJProject/HeyDJ/HeyDJ/CommanClasses/Helper/AppConstants.swift": [1529560065, 0]
   "/Users/pankajr/Documents/PankajRaghav/HeyDJProject/HeyDJ/HeyDJ/ViewControllers/SignUp/SignUpVC.swift": [1529662904, 0]
   "/Users/pankajr/Documents/PankajRaghav/HeyDJProject/HeyDJ/HeyDJ/Utilities/InternetUtil.swift": [1529560065, 0]

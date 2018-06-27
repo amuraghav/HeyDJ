@@ -66,16 +66,6 @@ class SignUpVC: UIViewController,MICountryPickerDelegate {
     
     func getOtpWebService() {
  
-        
-//        device_id         Mandatory
-//        device_token         Mandatory
-//        device_type         Mandatory ( 1- Android, 2 - Iphone )
-//        email         Mandatory
-//        mobile         Mandatory
-//        password         Mandatory
-//        country_code         Mandatory ( +91 )
-//        debug_mode         Mandatory
-//        name         Mandatory
 
         var paramsForSignUp:[String:Any]            = [String:Any]()
       

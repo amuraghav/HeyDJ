@@ -109,45 +109,25 @@ class SSCommonClass{
     internal typealias CompletionBlock = (_ bool:Bool)->Void
     //MARK:- alertMessage
     //:--
-//    class func alertPermissionMessage(message:String,viewController:UIViewController,callback:@escaping CompletionBlock){
-//        
-//        let title = ""
-//        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-//        // Background color.
-//        let backView = alertController.view.subviews.last?.subviews.last
-//        backView?.layer.cornerRadius = 10.0
-//        backView?.backgroundColor = UIColor.white
-//        
-//        // Change Title With Color and Font:
-//        
-//        let myString  = title
-//        var myMutableString = NSMutableAttributedString()
-//        myMutableString = NSMutableAttributedString(string: myString as String, attributes: [NSFontAttributeName:UIFont(name: "OpenSans-Semibold", size: 18.0)!])
-//        myMutableString.addAttribute(NSForegroundColorAttributeName, value: navigationBarColor, range: NSRange(location:0,length:myString.characters.count))
-//        alertController.setValue(myMutableString, forKey: "attributedTitle")
-//        
-//        // Change Message With Color and Font
-//        var messageMutableString = NSMutableAttributedString()
-//        messageMutableString = NSMutableAttributedString(string: message as String, attributes: [NSFontAttributeName:UIFont(name: "OpenSans-Semibold", size: 12.0)!])
-//        messageMutableString.addAttribute(NSForegroundColorAttributeName, value: appColor, range: NSRange(location:0,length:message.characters.count))
-//        alertController.setValue(messageMutableString, forKey: "attributedMessage")
-//        
-//        // Action.
-//        let okAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) {
-//            UIAlertAction in
-//            callback(true)
-//        }
-//        okAction.setValue(appColor, forKey: "titleTextColor")
-//        let cancelAction = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel) {
-//            UIAlertAction in
-//            callback(false)
-//        }
-//        cancelAction.setValue(appColor, forKey: "titleTextColor")
-//        // Add the actions
-//        alertController.addAction(okAction)
-//        alertController.addAction(cancelAction)
-//        viewController.present(alertController, animated: true, completion: nil)
-//    }
+    class func alertPermissionMessage(message:String,viewController:UIViewController,callback:@escaping CompletionBlock){
+        
+        let title = ""
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        // Action.
+        let okAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+            callback(true)
+        }
+        let cancelAction = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel) {
+            UIAlertAction in
+            callback(false)
+        }
+        // Add the actions
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        viewController.present(alertController, animated: true, completion: nil)
+    }
     
     
     //MARK:- saveUserDefault

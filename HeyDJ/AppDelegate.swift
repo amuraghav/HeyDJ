@@ -24,8 +24,15 @@ var parentNavigationController:UINavigationController?
         
         IQKeyboardManager.shared.enable = true
         registerForPushNotifications()
+      let s_Token  = UserDefaultController.sharedInstance.getSessionToken()
+       
         
-        sendToHome()
+        if(s_Token.count > 0){
+            
+                  sendToHome()
+        }
+        
+
     
         return true
     }
@@ -160,6 +167,17 @@ var parentNavigationController:UINavigationController?
         let sideMenuController = SlideMenuController(mainViewController:  SharedAppDelegate.parentNavigationController!, leftMenuViewController: arMenuViewControllerVC)
         
         SharedAppDelegate.window?.rootViewController = sideMenuController
+        SharedAppDelegate.window?.makeKeyAndVisible()
+        
+    }
+    
+    
+    func sendToLogin(){
+        //        let homeVC = mainStoryboardObj.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+        SharedAppDelegate.parentNavigationController = mainStoryboardObj.instantiateViewController(withIdentifier: "LoginNavigationController") as! LoginNavigationController
+      
+        
+        SharedAppDelegate.window?.rootViewController = parentNavigationController
         SharedAppDelegate.window?.makeKeyAndVisible()
         
     }
